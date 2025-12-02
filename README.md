@@ -55,7 +55,48 @@ Generated via custom `/research-*` slash commands to systematically document Gal
    - Complete examples from `lib/galaxy/util/rules_dsl_spec.yml`
    - 5 composition patterns, best practices, common pitfalls
 
-## Research Process
+## Development Workflow
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                     RESEARCH PHASE                          │
+│                                                             │
+│  /research-training          →  RESEARCH_SUMMARY_TRAINING  │
+│       ↓                                                     │
+│  /research-tools            →  RESEARCH_TOOLS              │
+│       ↓                                                     │
+│  /research-api              →  RESEARCH_API                │
+│       ↓                                                     │
+│  /research-tests            →  RESEARCH_TESTS              │
+│       ↓                                                     │
+│  /research-apply-rules      →  RESEARCH_APPLY_RULES        │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+                            ↓
+┌─────────────────────────────────────────────────────────────┐
+│                  COMMAND GENERATION                         │
+│                                                             │
+│  /build-command                                             │
+│    • Reads all RESEARCH_* docs (~60k tokens)                │
+│    • Applies requirements                                   │
+│    • Generates galaxy-transform-collection.md               │
+│    • Creates summary.md with reflections                    │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+                            ↓
+┌─────────────────────────────────────────────────────────────┐
+│                    ITERATION CYCLE                          │
+│                                                             │
+│  1. Use command → identify gaps                             │
+│  2. /research-{topic} → fill gaps                           │
+│  3. /build-command → regenerate with new research           │
+│  4. Test & validate                                         │
+│  5. Repeat                                                  │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Research Phase
 
 Each research command:
 1. Read PROBLEM_AND_GOAL.md for context
@@ -65,7 +106,7 @@ Each research command:
 
 **Key insight:** Research progressed from high-level concepts (training) → tool catalog → API mechanics → real test patterns → detailed DSL specification. This layered approach built comprehensive understanding.
 
-## Command Generation
+### Command Generation
 
 The `/build-command` slash command:
 1. Ingested all 6 research documents (~60k tokens)
@@ -187,7 +228,7 @@ To extend this work:
 
 ## License
 
-[Include your license here]
+MIT License - see [LICENSE](LICENSE) file for details
 
 ## Acknowledgments
 
