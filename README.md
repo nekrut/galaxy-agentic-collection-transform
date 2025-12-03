@@ -14,6 +14,7 @@ Create a Claude slash command that prefers Galaxy's native collection operation 
 
 ### Core Documents
 
+**[INIT_PROMPT.md](INIT_PROMPT.md)** - Initial prompt that bootstrapped this repository (Dec 2, 2025)
 **[PROBLEM_AND_GOAL.md](PROBLEM_AND_GOAL.md)** - Problem statement and success criteria
 **[artifacts/command/galaxy-transform-collection.md](artifacts/command/galaxy-transform-collection.md)** - Final slash command
 **[artifacts/summary.md](artifacts/summary.md)** - Research reflection and improvement suggestions
