@@ -41,4 +41,11 @@ IMPORTANT - API Input Format Requirements (from real-world testing):
 - Incorrect format causes SILENT failures - Galaxy uses defaults without error
 - Verify format by checking `/api/tools/{tool_id}/build` endpoint response structure
 
-Output: Create/update RESEARCH_API.md with comprehensive API usage guide.
+Output: Create/update artifacts/research/v<N>/RESEARCH_API.md with comprehensive API usage guide.
+
+Version detection:
+1. List directories in artifacts/research/ matching v*
+2. Find latest version (highest number)
+3. If RESEARCH_API.md exists in latest version → create v<N+1>
+4. If not exists → use latest version (continuing cycle)
+5. Create version directory if needed, write output there

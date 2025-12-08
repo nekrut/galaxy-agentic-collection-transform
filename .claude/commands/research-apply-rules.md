@@ -16,4 +16,11 @@ Provide detailed documentation on:
 
 This is critical documentation - the apply rules DSL is a powerful tool for collection manipulation and needs thorough understanding.
 
-Output: Create/update RESEARCH_APPLY_RULES.md with very detailed rules DSL documentation.
+Output: Create/update artifacts/research/v<N>/RESEARCH_APPLY_RULES.md with very detailed rules DSL documentation.
+
+Version detection:
+1. List directories in artifacts/research/ matching v*
+2. Find latest version (highest number)
+3. If RESEARCH_APPLY_RULES.md exists in latest version → create v<N+1>
+4. If not exists → use latest version (continuing cycle)
+5. Create version directory if needed, write output there
