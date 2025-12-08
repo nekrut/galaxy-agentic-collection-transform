@@ -16,4 +16,10 @@ Focus on:
 - Parameter passing and configuration
 - Examples from tests showing real usage patterns
 
+IMPORTANT - API Input Format Requirements (from real-world testing, see issue #7):
+- Data inputs (collections/datasets) require `{"values": [{"src": "...", "id": "..."}]}` wrapper
+- Conditional parameters use pipe notation: `"how|filter_source"` not nested `"how": {"filter_source": ...}`
+- Incorrect format causes SILENT failures - Galaxy uses defaults without error
+- Verify format by checking `/api/tools/{tool_id}/build` endpoint response structure
+
 Output: Create/update RESEARCH_API.md with comprehensive API usage guide.
