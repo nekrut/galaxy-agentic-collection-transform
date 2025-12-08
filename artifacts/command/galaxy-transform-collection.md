@@ -88,6 +88,55 @@ inputs = {
 
 ---
 
+## Galaxy MCP Server (Preferred When Available)
+
+If Galaxy MCP is configured, **prefer it over direct API calls**. MCP avoids all the pitfalls above.
+
+**Repository:** https://github.com/galaxyproject/galaxy-mcp
+
+### MCP Advantages
+
+- **No `values` wrapper needed** - MCP handles input format complexity internally
+- **Simplified authentication** - Uses configured credentials
+- **Built-in error handling** - Clearer error messages than silent API failures
+
+### MCP Tools Available
+
+| MCP Tool | Purpose |
+|----------|---------|
+| `run_tool` | Execute Galaxy tools |
+| `get_histories` | List user histories |
+| `list_history_ids` | Get history IDs |
+| `get_history_contents` | List history items |
+| `get_job_details` | Check job status and outputs |
+
+### MCP Usage Examples
+
+**Run a collection operation:**
+```python
+# MCP - Simple, no wrapper needed
+run_tool(
+    tool_id="__FILTER_FROM_FILE__",
+    inputs={
+        "input": {"src": "hdca", "id": collection_id},
+        "how|how_filter": "remove_if_absent",
+        "how|filter_source": {"src": "hda", "id": filter_file_id}
+    }
+)
+```
+
+**Check job and get outputs:**
+```python
+job = get_job_details(job_id)
+# output_collections included automatically
+```
+
+### When MCP Is Not Available
+
+Fall back to direct API calls using the patterns in this document. The "Common Pitfalls" section above becomes critical - follow those patterns exactly.
+
+---
+
 ## Decision Framework
 
 ### Step 1: Assess Available Metadata

@@ -1,6 +1,6 @@
 You should "think hard" about this command.
 
-Read PROBLEM_AND_GOAL.md to understand the problem and then ingest the research from artifacts/research/<latest_version>/RESEARCH_* documents to understand the research you've already done to address the problem.
+Read PROBLEM_AND_GOAL.md to understand the problem and then ingest the research from artifacts/research/<latest_version>/RESEARCH_* documents to understand the research you've already done to address the problem. Pay particular attention to RESEARCH_API.md - the MCP server guidance, input format patterns, and debugging techniques are essential for production use.
 
 (Find latest version by listing artifacts/research/v* directories and selecting highest number)
 
@@ -8,6 +8,8 @@ Create a slash command called galaxy-transform-collection.md in artifacts/comman
 
 The generated slash command should contain all the relevant research to transform collections in Galaxy reproducibly. The generated slash command should take in a prompt
 for how to modify the collection and do then do the transformation.
+
+The command should include MCP usage (when available), common API pitfalls and how to debug them, collection inspection patterns, and a complete pipeline example.
 
 Here is some additional context for how the generated slash command should work ideally:
 
